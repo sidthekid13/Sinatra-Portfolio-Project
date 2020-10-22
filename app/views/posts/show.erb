@@ -1,0 +1,19 @@
+<h1><%= @post.title%></h1>
+<p><%= @post.body%></p>
+
+
+
+
+<a href="/posts">Back to the index</a>
+
+
+<% @post.id == current_user.id %>
+
+    <a href="/posts/<%= @post.id %>/edit">Edit this log</a></br>
+    
+    <h3>Would you like to delete this post?</h3>
+    <form method="POST" action="/posts/<%= @post.id %>">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="delete">
+    </form>
+
